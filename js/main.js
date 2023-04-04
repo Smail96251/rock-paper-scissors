@@ -5,7 +5,9 @@ const playerScore = document.getElementById("player-score");
 const computerSign = document.getElementById("computer-sign");
 const computerScore = document.getElementById("computer-score");
 const buttonGame = document.querySelectorAll(".btn-square");
+const buttonRestart = document.getElementById("restart-btn");
 const modal = document.getElementById("endgame-modal");
+const endgameMsg = document.getElementById("endgame-msg");
 const overlay = document.getElementById("overlay");
 
 const gameSigns = {
@@ -67,12 +69,15 @@ function validateGames() {
     }
 }
 
+function visibilityModal() {
+    modal.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
 function validateRoundGame() {
     if(playerCounter == 5 || computerCounter == 5){
-        playerCounter = 0;
-        computerCounter = 0;
-        computerScore.innerText = computerCounter;
-        playerScore.innerText = playerCounter;
+        endgameMsg.innerText = playerCounter == 5 ? "You won!" : "You lose..."
+        visibilityModal();
     }
 }
 
@@ -83,9 +88,21 @@ function startGame (){
     validateRoundGame();
 }
 
+function restartGame(){
+    playerCounter = 0;
+    computerCounter = 0;
+    scoreInfo.innerText = "Choose your weapon";
+    scoreMessage.innerText = "First to score 5 points wins the game";
+    computerScore.innerText = computerCounter;
+    playerScore.innerText = playerCounter;
+    visibilityModal();
+}
+
 buttonGame.forEach(item => {
     item.addEventListener('click', getPlayerChoice);
 })
+
+buttonRestart.addEventListener("click", restartGame);
 
 
 
