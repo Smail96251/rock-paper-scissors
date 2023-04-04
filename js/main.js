@@ -9,6 +9,7 @@ const modal = document.getElementById("endgame-modal");
 const overlay = document.getElementById("overlay");
 
 let computerChoice = null;
+let playerChoice = null;
 
 function getRandomNuber(){
     return Math.floor(Math.random() * 3);
@@ -17,6 +18,14 @@ function getRandomNuber(){
 function getComputerChoise (){
     computerChoice = getRandomNuber();
 }
+
+function getPlayerChoice(e){
+    playerChoice = e.currentTarget.attributes.name.value;
+}
+
+buttonGame.forEach(item => {
+    item.addEventListener('click', getPlayerChoice);
+})
 
 
 
