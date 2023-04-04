@@ -9,6 +9,7 @@ const buttonRestart = document.getElementById("restart-btn");
 const modal = document.getElementById("endgame-modal");
 const endgameMsg = document.getElementById("endgame-msg");
 const overlay = document.getElementById("overlay");
+const copyrightDate = document.getElementById("copyright-date");
 
 const gameSigns = {
     "rock": "✊",
@@ -20,12 +21,12 @@ let playerChoice = null;
 let playerCounter = 0;
 let computerCounter = 0;
 
-function getRandomNumber(){
+function getRandomNumber() {
     return Math.floor(Math.random() * 3);
 }
 
-function getComputerChoice (){
-    switch (getRandomNumber()){
+function getComputerChoice() {
+    switch (getRandomNumber()) {
         case 0:
             computerChoice = "rock";
             break;
@@ -38,32 +39,32 @@ function getComputerChoice (){
     }
 }
 
-function getPlayerChoice(e){
+function getPlayerChoice(e) {
     playerChoice = e.currentTarget.attributes.name.value;
     startGame();
 }
 
-function updatePlayerAndComputerSign (){
+function updatePlayerAndComputerSign() {
     playerSign.innerText = gameSigns[playerChoice];
     computerSign.innerText = gameSigns[computerChoice];
 }
 
 function validateGames() {
-    if(playerChoice == "rock" && computerChoice == "scissors"
+    if (playerChoice == "rock" && computerChoice == "scissors"
         || playerChoice == "paper" && computerChoice == "rock"
-        || playerChoice == "scissors" && computerChoice == "paper"){
+        || playerChoice == "scissors" && computerChoice == "paper") {
         playerCounter++;
         playerScore.innerText = playerCounter;
         scoreInfo.innerText = "You Won!"
         scoreMessage.innerText = `${playerChoice} beats ${computerChoice}`
-    }else if(computerChoice == "rock" && playerChoice == "scissors"
+    } else if (computerChoice == "rock" && playerChoice == "scissors"
         || computerChoice == "paper" && playerChoice == "rock"
-        || computerChoice == "scissors" && playerChoice == "paper"){
+        || computerChoice == "scissors" && playerChoice == "paper") {
         computerCounter++;
         computerScore.innerText = computerCounter;
         scoreInfo.innerText = "You Lose..."
         scoreMessage.innerText = `${playerChoice} loses ${computerChoice}`
-    }else {
+    } else {
         scoreInfo.innerText = "It's a tie!"
         scoreMessage.innerText = `${playerChoice} ties with ${computerChoice}`
     }
@@ -75,20 +76,20 @@ function visibilityModal() {
 }
 
 function validateRoundGame() {
-    if(playerCounter == 5 || computerCounter == 5){
+    if (playerCounter == 5 || computerCounter == 5) {
         endgameMsg.innerText = playerCounter == 5 ? "You won!" : "You lose..."
         visibilityModal();
     }
 }
 
-function startGame (){
+function startGame() {
     getComputerChoice();
     updatePlayerAndComputerSign();
     validateGames();
     validateRoundGame();
 }
 
-function restartGame(){
+function restartGame() {
     playerCounter = 0;
     computerCounter = 0;
     scoreInfo.innerText = "Choose your weapon";
@@ -103,6 +104,8 @@ buttonGame.forEach(item => {
 })
 
 buttonRestart.addEventListener("click", restartGame);
+
+copyrightDate.innerText = new Date().getFullYear();
 
 
 
