@@ -4,7 +4,78 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock paper scissors</title>
   </head>
-  <body></body>
+  <body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script
+            src="https://kit.fontawesome.com/4c536a6bd5.js"
+            crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+  <header class="header">
+    <h1 class="title">ROCK PAPER SCISSORS</h1>
+  </header>
+  <main class="main">
+    <div class="scoreboard">
+      <h2 class="score-info" id="score-info">Choose your weapon</h2>
+      <h3 class="score-message" id="score-message">
+        First to score 5 points wins the game
+      </h3>
+      <div class="scores-container">
+        <div class="score-box">
+          <div class="sign" id="player-sign">❔</div>
+          <p class="score" id="player-score">Player: 0</p>
+        </div>
+        <div class="score-box">
+          <div class="sign" id="computer-sign">❔</div>
+          <p class="score" id="computer-score">Computer: 0</p>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-square" >
+        <div class="sign">✊</div>
+      </button>
+      <button class="btn btn-square" >
+        <div class="sign">✋</div>
+      </button>
+      <button class="btn btn-square" >
+        <div class="sign">✌</div>
+      </button>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <span id="copyright-date"></span>
+      Smail96251
+    </p>
+    <a href="https://github.com/michalosman" target="_blank">
+      <i class="fab fa-github"></i
+      ></a>
+  </footer>
+  <div class="modal" id="endgame-modal">
+    <p class="modal-title" id="endgame-msg"></p>
+    <button class="btn btn-restart" id="restart-btn">Play again</button>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <script src="script.js"></script>
+  </body>
+  </html>
+  </body>
 </html>
